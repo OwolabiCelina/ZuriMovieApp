@@ -1,24 +1,24 @@
 import React from 'react'
 import './homePage.css';
 import MovieCard from "../card/MovieCard"
-import Tv from '../../assets/tv.svg';
 import axios from "axios";
-// import { useNavigate } from 'react-router-dom';
-
+import Header from '../header/Header';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 
 const HomePage = () => {
 
     const [movies, setMovies] = useState([]);
     const [movieName, setMovieName] = useState("");
+    const [searchResult, setSearchResult] = useState([])
 
-    // console.log("consoling movies");
-    // console.log(console.log(movies));
+    const navigate = useNavigate();
 
-    // const navigate = useNavigate("./movie-details");
 
     const apiKey = "6cfc43ab713b0292b2e2b6610ad40c0e"; 
     const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+    const searchUrl = 'https://api.themoviedb.org/3/search/movie';
+
 
   useEffect(() => {
 
@@ -40,6 +40,12 @@ const HomePage = () => {
       console.log(movieName);
   }
 
+  const movieId = `https://api.themoviedb.org/3/find/{external_id}`;
+
+  const handleMovieClick =(movieId) =>{
+    navigate(`../movie-details/${movieId}`);
+
+  }
 
   const detectLanguage = async (e) => {
     e.preventDefault();
@@ -48,29 +54,48 @@ const HomePage = () => {
       return
     }
 
-     try {
-      let dataDetails = await axios(apiUrl);
-      if (dataDetails.status === 200){
-         console.log(`consoling search ${dataDetails.data.Search}`);
-         if (dataDetails.data.Search !== undefined){
-            setMovieName(dataDetails.data.Search);       
-         }else{
-          alert("No Movies for " + movieName + " Found")
-         }
-         
-      }
-     }catch(err){
-      console.log(err.message)
-     }
+    try {
+      const response = await axios.get(searchUrl, {
+        params: {
+          api_key: apiKey,
+          query: movieName,
+          language: 'en-US',
+          page: 1,
+        },
+      });
 
-  }
+      if (response.status === 200) {
+        const searchResult = response.data.results;
+        setSearchResult(searchResult);
+        
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  //    try {
+  //     let dataDetails = await axios.get(searchUrl);
+  //     if (dataDetails.status === 200){
+  //        console.log(`consoling search ${dataDetails.data.Search}`);
+  //       const searchResults = dataDetails.data.results;
+  //       setSearchResult(searchResult)
+  //        if (dataDetails.data.searchResult !== undefined){
+  //           setSearchResult(dataDetails.data.searchResult);       
+  //        }else{
+  //         alert("No Movies for " + movieName + " Found")
+  //        }
+         
+  //     }
+  //    }catch(err){
+  //     console.log(err.message)
+  //    }
+
+  // }
 
   return (
     <div>
-      <div>
-        <img src={Tv} alt="tv-icon" />
-        <h1>MovieBox</h1>
-        </div>
+      <Header />
         <form>
         <div className="detect-form">
             <input
@@ -79,21 +104,32 @@ const HomePage = () => {
               onChange={handleFormChange}
               placeholder="Search for a movie..."
             />
-            <button onClick={detectLanguage}>Get Movie Info
-            </button>
+            <button onClick={detectLanguage}>Search Movie</button>
           </div>
         </form>
 
-      <div className="movie-list">
-        
-         {movies.map((movie) => (
-          <MovieCard
-          key={movie.id}
-          title = {movie.title}
-          date = {movie.release_date}
-          imgSrc= {movie.backdrop_path}
-          />
-        ))} 
+        <div className="movie-list">
+        {searchResult.length !== 0 ? (
+          searchResult.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              title={movie.title}
+              date={movie.release_date}
+              imgSrc={movie.poster_path}
+              onClick={handleMovieClick}
+            />
+          ))
+        ) : (
+          movies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              title={movie.title}
+              date={movie.release_date}
+              imgSrc={movie.poster_path}
+              onClick={handleMovieClick}
+            />
+          ))
+        )}
       </div>
     </div>
   )
