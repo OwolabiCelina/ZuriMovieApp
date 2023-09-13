@@ -43,8 +43,7 @@ const HomePage = () => {
   const movieId = `https://api.themoviedb.org/3/find/{external_id}`;
 
   const handleMovieClick =(movieId) =>{
-    navigate(`../movie-details/${movieId}`);
-
+    navigate(`/movie-details/${movieId}`);
   }
 
   const detectLanguage = async (e) => {

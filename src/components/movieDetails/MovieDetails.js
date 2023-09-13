@@ -7,8 +7,8 @@ import Header from '../header/Header';
 const MovieDetails = () => {
 
     const apiKey = "6cfc43ab713b0292b2e2b6610ad40c0e"; 
-    // const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
-    const apiUrl = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1' 
+     const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+    // const apiUrl = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1' 
 
     const [movieDetails, setMovieDetails] = useState(null)
 
