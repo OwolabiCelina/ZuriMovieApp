@@ -7,7 +7,7 @@ function App() {
   return (
 
       <Routes>
-        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         {/* <Route path="/movie-details" component={MovieDetails} /> */}
       </Routes>
 
