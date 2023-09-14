@@ -1,0 +1,24 @@
+.movie-details-container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2rem;
+    border: 1px solid white;
+    /* width: 100%; */
+}
+
+.movie-poster{
+    width: 50%;
+}
+
+
+.add-btn{
+    width: 20%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: rgb(215, 215, 239);
+    cursor: pointer;
+}

@@ -1,11 +1,17 @@
+
+
 body{
     box-sizing: border-box;
+    background-color: black;
+    font-family: Poppins;
 }
 .movie-list{
     display: grid;
     grid-template-columns: 30% 30% 30%;
-    gap: 2%;
+    gap: 1%;
     justify-content: center;
+    margin-top: 10px;
+    
 }
 
 .movie-image {
@@ -37,12 +43,77 @@ body{
     transition: 0.33s ease;
     
 }
+.btn-icon-container{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-weight: 500;
+}
+.btn-icon-container button {
+    background-color: red;
+    color: white;
+}
+.love-icon{
+    fill: red;
+    color: green;  
+    width: 2em; 
+}
+
+.fave-btn{
+    width: 30%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(195, 195, 220);
+    margin-top: 20px;
+}
+
+.add-btn:hover{
+    background-color: rgb(26, 26, 176);
+
+}
+.movie-card-con{
+
+}
+
+.addBtn{
+    margin-top: 20px;
+}
 
 @media (max-width: 768px) {
     .movie-list{
         grid-template-columns: 47% 47%;
         gap: 0.5%;
     }
+
+    .detect-form{
+        /* width: 100%; */
+        margin-bottom:20px;
+    }
+    .detect-form input{
+        padding: 1rem;
+        width: 40%;
+    }
+    .detect-form button{
+        padding: 1rem;
+    }
+
+    .fave-btn{
+        width: 30%;
+        padding: 1rem;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(195, 195, 220);
+    }
+    
+    .add-btn:hover{
+        background-color: rgb(26, 26, 176);
+    
+    }
+
+    
 }
 
 @media (max-width: 500px) {

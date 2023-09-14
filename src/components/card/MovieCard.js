@@ -1,7 +1,8 @@
 import React from 'react';
-// import './Card.css';
+import './movieCard.css';
 
-const MovieCard = ({title, date, imgSrc}) => {
+
+const MovieCard = ({title, date, imgSrc, id}) => {
 
   return (
     <div data-testid="movie-poster" className="movie-card">
@@ -11,6 +12,7 @@ const MovieCard = ({title, date, imgSrc}) => {
         alt={`Poster for ghjk`}
       />
       <div className="movie-details">
+        {/* <h2>Key: {id}</h2> */}
         <h2 data-testid ="movie-title">{title}</h2>
         <p data-testid="movie-release-date">Release Date: {date}</p>
       </div>
