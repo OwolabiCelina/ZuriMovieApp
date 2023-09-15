@@ -44,9 +44,9 @@ const MovieDetails = () => {
     <div>
         <Header />
 
-    <div className='movie-details-container'>
+    <div className='movie-details-parent-container'>
 
-        <div className='movie-poster'>
+        <div className='movie-poster-path'>
             <img data-testid="movie-poster"
             className="movie-image"
             src={`https://image.tmdb.org/t/p/w500/${movieData.backdrop_path}`}
@@ -54,12 +54,12 @@ const MovieDetails = () => {
         />
         </div>
 
-        <div>
+        <div className='movie-details-container'>
             
-            <p data-testid ="movie-title">TITLe: <span>{movieData.title}</span></p>
-            <p data-testid ="movie-release-date">RELEASE DATE: <span>{utcReleaseDate}</span></p>
-            <p data-testid="movie-runtime">OVERVIEW: <span>{movieData.overview}</span></p>
-            <p data-testid="movie-overview">RUNTIME: <span>{utcTime}</span></p>
+            <p data-testid ="movie-title">Title: <span>{movieData.title}</span></p>
+            <p data-testid ="movie-release-date">Release Date: <span>{utcReleaseDate}</span></p>
+            <p data-testid="movie-runtime">Overview: <span>{movieData.overview}</span></p>
+            <p data-testid="movie-overview">Runtime: <span>{utcTime}</span></p>
         </div>
 
         <button className='add-btn' onClick={handleClick}>Go Back</button>

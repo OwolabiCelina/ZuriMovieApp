@@ -15,7 +15,7 @@ body{
 }
 
 .movie-image {
-    width: 100%;
+    width: 80%;
 }
 
 .detect-form{
@@ -55,7 +55,7 @@ body{
 }
 
 .love-icon{
-    width: 5em; 
+    width: 6em; 
     cursor: pointer;
 }
 
@@ -78,9 +78,6 @@ body{
     background-color: rgb(26, 26, 176);
 
 }
-.movie-card-con{
-
-}
 
 .addBtn{
     margin-top: 20px;
@@ -88,13 +85,13 @@ body{
 
 @media (max-width: 768px) {
     .movie-list{
-        grid-template-columns: 47% 47%;
-        gap: 0.5%;
+        grid-template-columns: 45% 45%;
+        gap: 0.3%;
     }
 
     .detect-form{
-        /* width: 100%; */
         margin-bottom:20px;
+        width: 80%;
     }
     .detect-form input{
         padding: 1rem;
@@ -103,27 +100,31 @@ body{
     .detect-form button{
         padding: 1rem;
     }
+    .love-icon{
+        width: 9em; 
+    }
 
     .fave-btn{
-        width: 30%;
+        width: 45%;
         padding: 1rem;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        background-color: rgb(195, 195, 220);
+        font-size: 0.5rem;
     }
     
     .add-btn:hover{
         background-color: rgb(26, 26, 176);
     
     }
-
-    
 }
 
-@media (max-width: 500px) {
+@media (max-width: 515px) {
     .movie-list{
         grid-template-columns: 90%;
         gap: 0.5%;
+    }
+    
+    .fave-btn{
+        width: 45%;
+        padding: 0.4rem;
+        font-size: 0.5rem;
     }
 }
