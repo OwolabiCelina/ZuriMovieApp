@@ -38,4 +38,4 @@ The React Movie Search App uses the following technologies and libraries:
 React: JavaScript library for building user interfaces.
 Axios: Promise-based HTTP client for making API requests.
 React Router: Routing library for navigation within the app.
-Bootstrap: CSS framework for styling the app.
+Vanilla-CSS: CSS framework for styling the app.
