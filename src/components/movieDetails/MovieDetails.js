@@ -11,10 +11,10 @@ const MovieDetails = () => {
 
     const [back, setBack]= useState("");
     const [utcTime, setUtcTime] = useState(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));
-
+    
 
     const navigate = useNavigate();
-
+    const [utcReleaseDate, setUtcReleaseDate] = useState('');
     const location = useLocation()
     const movieData = location.state.data[0]
 
@@ -32,7 +32,12 @@ const MovieDetails = () => {
     return () => clearInterval (intervalId);
   }, []);
 
-  
+  useEffect(() => {
+    const releaseDate = new Date(movieData.release_date);
+    const utcReleaseDateString = releaseDate.toISOString();
+    setUtcReleaseDate(utcReleaseDateString);
+  }, [movieData.release_date]);
+
 
 
   return (
@@ -52,7 +57,7 @@ const MovieDetails = () => {
         <div>
             
             <p data-testid ="movie-title">TITLe: <span>{movieData.title}</span></p>
-            <p data-testid ="movie-release-date">RELEASE DATE: <span>{movieData.release_date}</span></p>
+            <p data-testid ="movie-release-date">RELEASE DATE: <span>{utcReleaseDate}</span></p>
             <p data-testid="movie-runtime">OVERVIEW: <span>{movieData.overview}</span></p>
             <p data-testid="movie-overview">RUNTIME: <span>{utcTime}</span></p>
         </div>
