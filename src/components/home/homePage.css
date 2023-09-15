@@ -53,20 +53,25 @@ body{
     background-color: red;
     color: white;
 }
+
 .love-icon{
-    fill: red;
-    color: green;  
-    width: 2em; 
+    width: 5em; 
+    cursor: pointer;
 }
 
 .fave-btn{
     width: 30%;
     padding: 1rem;
     outline: none;
+    font-size: 0.5rem;
     border: none;
     cursor: pointer;
     background-color: rgb(195, 195, 220);
     margin-top: 20px;
+}
+
+.fave-btn:hover{
+    background-color: rgb(26, 26, 176);
 }
 
 .add-btn:hover{

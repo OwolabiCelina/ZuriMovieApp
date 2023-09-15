@@ -116,7 +116,7 @@ const HomePage = () => {
             />
             <div className='btn-icon-container'>
               <button className='fave-btn' onClick={() => addToFavorites(movie.id)}>Add to Favorites</button>
-              <FaHeart  color="red"  width={"10rem"} />
+              <FaHeart className='love-icon' color="red"  width={"10rem"} />
               </div>
             </div>
           ))
@@ -132,7 +132,7 @@ const HomePage = () => {
             />
              <div className='btn-icon-container'>
               <button className='fave-btn' onClick={() => addToFavorites(movie.id)}>Add to Favorites</button>
-              <FaHeart color="red"  width={"10rem"}  />
+              <FaHeart className='love-icon' color="red"  width={"10rem"}  />
              </div>
             </div>            
           ))

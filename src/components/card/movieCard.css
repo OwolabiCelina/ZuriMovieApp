@@ -2,7 +2,7 @@
     width: 20rem;
     background-color: white;
     padding: 1.5rem;
-    
+    border-radius: 30px;
 }
 
 [data-testid="movie-title"]{
