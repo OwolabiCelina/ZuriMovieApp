@@ -32,11 +32,11 @@ const MovieDetails = () => {
     return () => clearInterval (intervalId);
   }, []);
 
-  useEffect(() => {
-    const releaseDate = new Date(movieData.release_date);
-    const utcReleaseDateString = releaseDate.toISOString();
-    setUtcReleaseDate(utcReleaseDateString);
-  }, [movieData.release_date]);
+  // useEffect(() => {
+  //   const releaseDate = new Date(movieData.release_date);
+  //   const utcReleaseDateString = releaseDate.toISOString();
+  //   setUtcReleaseDate(utcReleaseDateString);
+  // }, [movieData.release_date]);
 
 
 
@@ -57,7 +57,7 @@ const MovieDetails = () => {
         <div className='movie-details-container'>
             
             <p data-testid ="movie-title">Title: <span>{movieData.title}</span></p>
-            <p data-testid ="movie-release-date">Release Date: <span>{utcReleaseDate}</span></p>
+            <p data-testid ="movie-release-date">Release Date: <span>{movieData.release_date}</span></p>
             <p data-testid="movie-runtime">Overview: <span>{movieData.overview}</span></p>
             <p data-testid="movie-overview">Runtime: <span>{utcTime}</span></p>
         </div>
